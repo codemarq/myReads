@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+
 
 class Search extends Component {
 	handleSubmit = (e) => {
@@ -10,7 +12,7 @@ class Search extends Component {
 		return (
 			<div className='search-books'>
 				<div className='search-books-bar'>
-					<a className='close-search'>Close</a>
+					<Link className='close-search' to='/'>Close</Link>
 					<form className='search-books-input-wrapper'>
 							<input type='text' name='search' placeholder='Search by title or author'/>
 					</form>
