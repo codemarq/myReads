@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import './App.css';
 import Search from './Search';
 import BookShelf from './BookShelf'
-
+import Books from './AllBooks'
 
 class App extends Component {
   state = {
@@ -18,9 +18,9 @@ class App extends Component {
             <header className='list-books-title'>
               <h1>My Reads</h1>
             </header>
-            <BookShelf shelfTitle='Currently Reading' />
-            <BookShelf shelfTitle='Want to Read' />
-            <BookShelf shelfTitle='Already Read' />
+            <BookShelf shelfTitle='Currently Reading' shelf='current'/>
+            <BookShelf shelfTitle='Want to Read' shelf='want'/>
+            <BookShelf shelfTitle='Already Read' shelf='done'/>
           </div>
         )}/>
         <Route path='/search' render={() => (
