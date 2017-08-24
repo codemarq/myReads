@@ -5,12 +5,7 @@ class ShelfChanger extends Component {
     value: this.props.selected
   };
 
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange (event) {
+  handleChange = (event) => {
     this.setState({value: event.selected})
   };
 

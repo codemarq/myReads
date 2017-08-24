@@ -329,7 +329,7 @@ class App extends Component {
         "id": "1wy49i-gQjIC",
         "shelf": "read"
       }
-    ]
+    ],
   }
   
   render() {
@@ -340,7 +340,18 @@ class App extends Component {
             <header className='list-books-title'>
               <h1>My Reads</h1>
             </header>
-            <BookShelf shelfTitle='Want to Read' books={this.state.books}/>
+            <BookShelf 
+              shelfTitle='Currently Reading' 
+              books={this.state.books.filter(book => book.shelf === 'currentlyReading')}
+            />
+            <BookShelf 
+              shelfTitle='Want to Read' 
+              books={this.state.books.filter(book => book.shelf === 'wantToRead')}
+            />
+            <BookShelf 
+              shelfTitle='Already Read' 
+              books={this.state.books.filter(book => book.shelf === 'read')}
+            />
           </div>
         )}/>
         <Route path='/search' render={() => (
