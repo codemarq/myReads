@@ -33,9 +33,12 @@ class App extends Component {
         <Route exact path='/' render={() => (
           <BookCase books={this.state.books}/>
         )}/>
-        
+
         <Route path='/search' render={() => (
-          <Search books={this.state.books}/>
+          <Search 
+            books={this.state.books}
+            onUpdate={this.updateBook}
+          />
         )}/>
       </div>
     );
