@@ -14,32 +14,35 @@ class App extends Component {
   }
   
   componentDidMount () {
+    this.getAllBooks();
+  };
+  
+  updateBook = (book, shelf) => {
+    BooksAPI.update(book, shelf).then(this.getAllBooks())
+  } 
+  
+  getAllBooks = () => {
     BooksAPI.getAll().then((books) => {
       this.setState({ books: books });
     })
-  };
-  
-  updateBook = (book) => {
-    BooksAPI.update(book, book.selected).then((updatedBook) => {
-      this.setState((state) => ({
-        books: updatedBook
-      }))
-    })
   }
-
+  
   render() {
     return (
       <div className="App">
-        <Route exact path='/' render={() => (
-          <BookCase books={this.state.books}/>
-        )}/>
-
-        <Route path='/search' render={() => (
-          <Search 
-            books={this.state.books}
-            onUpdate={this.updateBook}
-          />
-        )}/>
+      <Route exact path='/' render={() => (
+        <BookCase 
+        books={this.state.books}
+        onUpdate={this.updateBook}
+        />
+      )}/>
+      
+      <Route path='/search' render={() => (
+        <Search 
+        books={this.state.books}
+        onUpdate={this.updateBook}
+        />
+      )}/>
       </div>
     );
   }

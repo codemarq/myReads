@@ -4,7 +4,7 @@ import BookShelf from './BookShelf';
 
 
 class BookCase extends Component {
-
+  
   render() {
     return (
       <div>
@@ -14,14 +14,17 @@ class BookCase extends Component {
         <BookShelf 
           shelfTitle='Currently Reading' 
           books={this.props.books.filter(book => book.shelf === 'currentlyReading')}
+          onUpdate={this.props.onUpdate}
         />
         <BookShelf 
           shelfTitle='Want to Read' 
           books={this.props.books.filter(book => book.shelf === 'wantToRead')}
+          onUpdate={this.props.onUpdate}
         />
         <BookShelf 
           shelfTitle='Already Read' 
           books={this.props.books.filter(book => book.shelf === 'read')}
+          onUpdate={this.props.onUpdate}
         />
         <div className="open-search">
           <Link 
