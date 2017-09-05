@@ -3,8 +3,8 @@ import Book from './Book';
 
 
 function BookShelf (props) {
-  
-  return (
+
+  return ( 
     <div className='list-books'>
       <div className='bookshelf'>
         <div className='bookshelf-title'>
@@ -12,7 +12,7 @@ function BookShelf (props) {
           <div className='bookshelf-books'>
             <ol className='books-grid'>
               {props.books.map(book => (
-               <Book book={book}/>
+               <Book book={book} key={book.id} onUpdate={props.onUpdate}/>
               ))}
             </ol>
           </div>
