@@ -19,10 +19,12 @@ class Search extends Component {
 
 	updateQuery= (query) => {
 		this.setState({query: query.trim()})
-		search(query, 10).then(res =>{
-			this.setState({
-				books: res
-			})
+		search(query, 10).then(res => {
+			if (res && res.error) {
+				this.clearQuery()
+			} else {
+				this.setState({ books: res })
+			}
 		})
 	}
 
